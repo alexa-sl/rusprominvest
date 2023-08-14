@@ -1,0 +1,85 @@
+@import "variables"
+
+.row
+  padding-left: 15px
+  padding-right: 15px
+
+#content
+  #valuation-topics-section
+    .row
+      .valuation-type
+        display: flex
+        justify-content: center
+        align-items: center
+        margin-bottom: 4rem
+        &:first-child
+          margin-top: 30px
+        &__title
+          position: relative
+          left: 10px
+          //bottom: 15%
+          min-width: 360px
+          max-width: 360px
+          text-align: center
+          background: #eef9ff
+          padding: 2rem
+          border-radius: 10px
+          p
+            strong
+              padding-bottom: 5px
+              border-bottom: 3px solid $bottom-line-color
+          p
+            margin-top: 0
+            margin-bottom: 0
+        &__text
+          background: #ffffff
+          padding: 1rem
+          z-index: 100
+          border-radius: 10px
+          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.18)
+          .docs-list
+            margin-bottom: 2rem
+            .docs-item
+              margin-bottom: 0.5rem
+          .table-price-wrapper
+            padding: 1rem
+            table
+              th, td
+                padding: 5px
+
+
+
+@media (max-width: 992px)
+  //.container-fluid
+    padding-left: 15px
+    padding-right: 15px
+  #content
+    #valuation-topics-section
+      .row
+        .valuation-type
+          flex-direction: column
+          &__title
+            left: 0
+            top: 10px
+            max-width: none
+            border-radius: 10px 10px 0 0
+            box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.18)
+            p
+              margin-top: -10px
+
+//@media (min-width: 1920px)
+  #content
+    #valuation-presentation-section
+      .bg-image-wrapper
+        height: 100vh
+        margin-top: -93px
+        .theses
+          top: 147px
+
+//@media (max-width: 400px)
+  #content
+    margin-top: 68px
+    #valuation-presentation-section
+      .bg-image-wrapper
+        //.theses
+          top: 65px

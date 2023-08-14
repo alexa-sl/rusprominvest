@@ -1,0 +1,356 @@
+@import "variables"
+*
+  box-sizing: border-box
+
+body
+  margin: 0
+  padding: 0
+  font-family: Montserrat, sans-serif
+  &::-webkit-scrollbar
+    width: 8px
+
+  &::-webkit-scrollbar-track
+    background-color: #f3f3f3
+
+  &::-webkit-scrollbar-thumb
+    background-color: rgba(118, 121, 124, 0.76)
+    &:hover
+      background-color: rgba(118, 121, 124, 1)
+
+.container-fluid
+  padding-left: 0
+  padding-right: 0
+  overflow: hidden
+  //.row
+    margin-right: 0
+
+
+.main-navigation
+  box-shadow: 0 3px 8px rgb(0 0 0 / 12%)
+  background: #ffffff
+  .navigation-list-wrapper
+    justify-content: end
+    .navigation-list
+      width: 80%
+      justify-content: space-between
+      display: flex
+      //width: 80%
+      //justify-content: space-between
+      margin: 0
+      li
+        list-style: none
+        text-align: center
+        border-bottom: 3px solid transparent
+        a
+          text-decoration: none
+          outline: none
+          //padding: 5px
+          color: $font-color
+          font-size: 20px
+          text-transform: uppercase
+          font-weight: 700
+          letter-spacing: 3px
+          transition: all .05s
+          &:hover
+            padding-bottom: 5px
+            cursor: pointer
+            border-bottom: 3px solid $bottom-line-color
+
+.section-title
+  text-align: center
+  position: relative
+  padding-bottom: 0.7rem
+  font-weight: 600
+
+#content
+  margin-top: 93px
+  #title-image-section
+    .bg-image-wrapper
+      position: relative
+      text-align: center
+      img
+        height: 100%
+      h2
+        position: absolute
+        top: 50px
+        left: 50%
+        transform: translate(-50%, -50%)
+
+  #services-section
+    margin-top: 2rem
+    background: #fcfcfc
+    &:before
+      content: ""
+      display: block
+      height: 93px
+      margin: -93px 0 0
+    .title
+      &:after
+        content: ""
+        position: absolute
+        bottom: 0
+        left: 50%
+        width: 10%
+        height: 5px
+        margin-left: -5%
+        margin-top: 5px
+        background: #CBF3FF
+
+    .articles-wrapper
+      justify-content: center
+      .service-article
+        &__title
+          margin-bottom: 15px
+          h5
+            display: inline
+            font-weight: 600
+            border-bottom: 4px solid $bottom-line-color
+            padding-bottom: 4px
+        line-height: 2
+        border-radius: 10px
+        background: #ffffff
+        margin: 1.5rem
+        padding: 1.5rem
+        min-height: 315px
+        box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.1)
+        &:nth-child(1), &:nth-child(4)
+          background: #EDFBFF
+        .more-button__wrapper
+          text-align: end
+          .more-button
+            border: 3px solid $bottom-line-color
+            border-radius: 25px
+            transition: transform .2s
+            &:hover
+              transform: scale(1.1)
+              background: $bottom-line-color
+              color: #ffffff
+              font-weight: 600
+
+  #about-us-section
+    &:before
+      content: ""
+      display: block
+      height: 93px
+      margin: -93px 0 0
+    h2
+      &:after
+        content: ""
+        position: absolute
+        bottom: 0
+        left: 50%
+        width: 4%
+        height: 5px
+        margin-left: -2%
+        margin-top: 5px
+        background: $background-card-blue
+
+    .about-us__tagline-wrapper
+      margin: 1rem
+    .about-us__wrapper
+      justify-content: center
+      .about-link
+        display: flex
+        align-items: center
+        flex-direction: column
+        height: 100%
+        text-align: center
+        text-decoration: none
+        font-size: 18px
+        color: $font-color
+        border-radius: 15px
+        background: #F9F7F7
+        box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.1)
+        margin: 1rem
+        transition: transform .2s ease-in-out
+        img
+          max-height: 100px
+        &:hover
+          cursor: pointer
+          transform: scale(1.05)
+
+
+  #contacts-section
+    &:before
+      content: ""
+      display: block
+      height: 93px
+      margin: -93px 0 0
+    margin-top: 2rem
+    background: #fcfcfc
+    h2
+      padding-top: 1rem
+      margin-bottom: 2rem
+      &:after
+        content: ""
+        position: absolute
+        bottom: 0
+        left: 50%
+        width: 4%
+        height: 5px
+        margin-left: -2%
+        margin-top: 5px
+        background: $background-card-blue
+
+    .contacts-articles__wrapper
+      h3
+        text-align: center
+      .map__wrapper
+        text-align: center
+        margin-bottom: 1rem
+        img
+          width: 100%
+          border-radius: 10px
+      .phone-block
+        text-align: center
+        padding-bottom: 1rem
+        &__link
+          font-size: 18px
+          font-weight: 600
+      .email-block
+        margin-bottom: 1rem
+      footer
+        text-align: center
+        .contact-info
+          display: inline-block
+
+  #footer-section
+    background: #454545
+    .column-divider, .common-footer-divider
+      color: $footer-text-color
+      &:not(.common-footer-divider)
+        width: 65%
+    .footer-column-title
+      color: #E4E4E4
+      text-transform: uppercase
+      font-weight: 600
+      padding: 1.3rem 0 0 1.3rem
+    .footer-list
+      list-style: none
+      padding-left: 1rem
+      &__item
+        a
+          color: $footer-text-color
+          text-decoration: none
+          line-height: 2.5
+          padding: 5px
+          border: 3px solid transparent
+          transition: border .1s ease-in-out
+          &:hover
+            border: 3px solid #3AFFDC
+        address, i
+          color: $footer-text-color
+    .footer-contacts-list
+      .footer-contacts-list__item
+        font-weight: 600
+    .footer-logo-tagline
+      display: flex
+      align-items: center
+      color: $footer-text-color
+      margin-bottom: 1rem
+      img
+        margin-bottom: 10px
+        border-radius: 0 10px 10px 0
+    .rights-block
+      color: $footer-text-color
+      text-align: center
+
+.hidden
+  display: none
+
+@media (min-width: 1920px)
+  #content
+    #title-image-section
+      .bg-image-wrapper
+        height: 100vh
+        margin-top: -93px
+        h2
+          top: 147px
+
+@media (min-width: 1100px)
+  .main-navigation
+    .navigation-list-wrapper
+      .navigation-list
+        width: 60%
+
+
+@media (max-width: 992px)
+  .navigation-list-wrapper
+    justify-content: center
+
+  .main-navigation
+    .navigation-list-wrapper
+      .navigation-list
+        width: 90%
+        li
+          a
+            font-size: 18px
+            letter-spacing: 2px
+
+  #content
+    #services-section
+      .title
+        &:after
+          content: ""
+          position: absolute
+          bottom: 0
+          width: 26%
+          height: 5px
+          margin-left: -13%
+          margin-top: 5px
+          background: #CBF3FF
+
+    #contacts-section
+      .contacts-articles__wrapper
+        .contact-with-us
+          h3
+            margin-top: 1rem
+
+
+@media (max-width: 768px) 
+  #logo_wrapper
+    width: 80%
+
+  .main-navigation
+    .navigation-list-wrapper
+      .navigation-list
+        width: 100%
+        li
+          a
+            width: 50%
+            margin: auto
+
+  #content
+    #about-us-section
+      h2
+        &:after
+          content: ""
+          position: absolute
+          bottom: 0
+          width: 20%
+          height: 5px
+          margin-left: -10%
+          margin-top: 5px
+          background: $background-card-blue
+      .about-us__wrapper
+        .about-link
+          margin: 0.5rem
+
+    #footer-section
+      .footer-logo-tagline
+        text-align: center
+
+@media (max-width: 400px)
+  #content
+    margin-top: 68px
+    #title-image-section
+      .bg-image-wrapper
+        h2
+          top: 65px
+
+  .image__wrapper
+    width: 60%
+
+  #logo
+    width: 100%
+
