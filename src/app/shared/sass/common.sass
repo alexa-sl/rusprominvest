@@ -5,7 +5,8 @@
 body
   margin: 0
   padding: 0
-  font-family: Montserrat, sans-serif
+  font-family: 'Raleway', sans-serif
+  font-weight: 200
   &::-webkit-scrollbar
     width: 8px
 
@@ -21,8 +22,6 @@ body
   padding-left: 0
   padding-right: 0
   overflow: hidden
-  //.row
-    margin-right: 0
 
 
 .main-navigation
@@ -43,28 +42,29 @@ body
         border-bottom: 3px solid transparent
         a
           text-decoration: none
+          white-space: nowrap
           outline: none
-          //padding: 5px
-          color: $font-color
+          color: $color-dark
           font-size: 20px
           text-transform: uppercase
-          font-weight: 700
           letter-spacing: 3px
-          transition: all .05s
+          border-bottom: 3px solid transparent
           &:hover
-            padding-bottom: 5px
-            cursor: pointer
             border-bottom: 3px solid $bottom-line-color
+            transition: all .8s
+  .logo
+    width: 300px
+    margin: 0 1rem
 
 .section-title
   text-align: center
   position: relative
   padding-bottom: 0.7rem
-  font-weight: 600
+  font-weight: 300
 
-#content
+.content
   margin-top: 93px
-  #title-image-section
+  .title-image-section
     .bg-image-wrapper
       position: relative
       text-align: center
@@ -94,7 +94,7 @@ body
         height: 5px
         margin-left: -5%
         margin-top: 5px
-        background: #CBF3FF
+        background: $background-dark
 
     .articles-wrapper
       justify-content: center
@@ -113,8 +113,12 @@ body
         padding: 1.5rem
         min-height: 315px
         box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.1)
-        &:nth-child(1), &:nth-child(4)
-          background: #EDFBFF
+        &:hover
+          background: transparentize($color-light, .8)
+          transition: background-color .8s
+          h5
+            border-bottom: 4px solid $bottom-line-color-dark
+            transition: border-bottom-color .8s
         .more-button__wrapper
           text-align: end
           .more-button
@@ -143,7 +147,7 @@ body
         height: 5px
         margin-left: -2%
         margin-top: 5px
-        background: $background-card-blue
+        background: $background-dark
 
     .about-us__tagline-wrapper
       margin: 1rem
@@ -157,7 +161,7 @@ body
         text-align: center
         text-decoration: none
         font-size: 18px
-        color: $font-color
+        color: $color-dark
         border-radius: 15px
         background: #F9F7F7
         box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.1)
@@ -190,7 +194,7 @@ body
         height: 5px
         margin-left: -2%
         margin-top: 5px
-        background: $background-card-blue
+        background: $background-dark
 
     .contacts-articles__wrapper
       h3
@@ -215,9 +219,9 @@ body
           display: inline-block
 
   #footer-section
-    background: #454545
+    background: $color-dark
     .column-divider, .common-footer-divider
-      color: $footer-text-color
+      color: $color-light
       &:not(.common-footer-divider)
         width: 65%
     .footer-column-title
@@ -230,7 +234,7 @@ body
       padding-left: 1rem
       &__item
         a
-          color: $footer-text-color
+          color: $color-light
           text-decoration: none
           line-height: 2.5
           padding: 5px
@@ -239,28 +243,28 @@ body
           &:hover
             border: 3px solid #3AFFDC
         address, i
-          color: $footer-text-color
+          color: $color-light
     .footer-contacts-list
       .footer-contacts-list__item
         font-weight: 600
     .footer-logo-tagline
       display: flex
       align-items: center
-      color: $footer-text-color
+      color: $color-light
       margin-bottom: 1rem
       img
-        margin-bottom: 10px
-        border-radius: 0 10px 10px 0
+        width: 300px
+        margin: 0 1rem
     .rights-block
-      color: $footer-text-color
+      color: $color-light
       text-align: center
 
 .hidden
   display: none
 
 @media (min-width: 1920px)
-  #content
-    #title-image-section
+  .content
+    .title-image-section
       .bg-image-wrapper
         height: 100vh
         margin-top: -93px
@@ -287,7 +291,7 @@ body
             font-size: 18px
             letter-spacing: 2px
 
-  #content
+  .content
     #services-section
       .title
         &:after
@@ -307,7 +311,7 @@ body
             margin-top: 1rem
 
 
-@media (max-width: 768px) 
+@media (max-width: 768px)
   #logo_wrapper
     width: 80%
 
@@ -320,7 +324,7 @@ body
             width: 50%
             margin: auto
 
-  #content
+  .content
     #about-us-section
       h2
         &:after
@@ -331,7 +335,7 @@ body
           height: 5px
           margin-left: -10%
           margin-top: 5px
-          background: $background-card-blue
+          background: $background-dark
       .about-us__wrapper
         .about-link
           margin: 0.5rem
@@ -341,9 +345,9 @@ body
         text-align: center
 
 @media (max-width: 400px)
-  #content
+  .content
     margin-top: 68px
-    #title-image-section
+    .title-image-section
       .bg-image-wrapper
         h2
           top: 65px
