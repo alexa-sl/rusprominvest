@@ -34,8 +34,6 @@ body
       width: 80%
       justify-content: space-between
       display: flex
-      //width: 80%
-      //justify-content: space-between
       margin: 0
       li
         list-style: none
@@ -144,9 +142,8 @@ body
         bottom: 0
         left: 50%
         width: 4%
-        height: 5px
+        height: 1px
         margin-left: -2%
-        margin-top: 5px
         background: $background-dark
 
     .about-us__tagline-wrapper
@@ -174,7 +171,7 @@ body
           transform: scale(1.05)
 
 
-  #contacts-section
+  .contacts-section
     &:before
       content: ""
       display: block
@@ -191,9 +188,8 @@ body
         bottom: 0
         left: 50%
         width: 4%
-        height: 5px
+        height: 1px
         margin-left: -2%
-        margin-top: 5px
         background: $background-dark
 
     .contacts-articles__wrapper
@@ -210,15 +206,21 @@ body
         padding-bottom: 1rem
         &__link
           font-size: 18px
-          font-weight: 600
-      .email-block
-        margin-bottom: 1rem
+          font-weight: 400
       footer
         text-align: center
+        div
+          padding-bottom: 1rem
         .contact-info
           display: inline-block
+      .bi
+        margin: 0 .2rem
+      .address-block
+        a
+          color: $color-dark
+          text-decoration: none
 
-  #footer-section
+  .footer-section
     background: $color-dark
     .column-divider, .common-footer-divider
       color: $color-light
@@ -227,26 +229,25 @@ body
     .footer-column-title
       color: #E4E4E4
       text-transform: uppercase
-      font-weight: 600
+      font-weight: 400
       padding: 1.3rem 0 0 1.3rem
     .footer-list
       list-style: none
       padding-left: 1rem
       &__item
-        a
+        a, address
           color: $color-light
           text-decoration: none
           line-height: 2.5
           padding: 5px
-          border: 3px solid transparent
-          transition: border .1s ease-in-out
+          border: 1px solid transparent
+          transition: border .1s ease-in
           &:hover
-            border: 3px solid #3AFFDC
+            border-bottom: 1px solid $bottom-line-color
         address, i
           color: $color-light
-    .footer-contacts-list
-      .footer-contacts-list__item
-        font-weight: 400
+          line-height: 1.5
+          padding: 0
     .footer-logo-tagline
       display: flex
       align-items: center
@@ -255,10 +256,10 @@ body
       img
         width: 300px
         margin: 0 1rem
-        color: #3AFFDC
     .rights-block
       color: $color-light
       text-align: center
+
 
 .hidden
   display: none
@@ -300,12 +301,11 @@ body
           position: absolute
           bottom: 0
           width: 26%
-          height: 5px
+          height: 1px
           margin-left: -13%
-          margin-top: 5px
           background: #CBF3FF
 
-    #contacts-section
+    .contacts-section
       .contacts-articles__wrapper
         .contact-with-us
           h3
@@ -341,7 +341,7 @@ body
         .about-link
           margin: 0.5rem
 
-    #footer-section
+    .footer-section
       .footer-logo-tagline
         text-align: center
 
