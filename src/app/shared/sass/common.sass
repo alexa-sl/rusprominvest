@@ -27,6 +27,7 @@ body
 .main-navigation
   box-shadow: 0 3px 8px rgb(0 0 0 / 12%)
   background: #ffffff
+  padding: 0
   .navigation-list-wrapper
     justify-content: end
     .navigation-list
@@ -39,7 +40,7 @@ body
       li
         list-style: none
         text-align: center
-        border-bottom: 3px solid transparent
+        border-bottom: 1px solid transparent
         a
           text-decoration: none
           white-space: nowrap
@@ -48,9 +49,9 @@ body
           font-size: 20px
           text-transform: uppercase
           letter-spacing: 3px
-          border-bottom: 3px solid transparent
+          border-bottom: 1px solid transparent
           &:hover
-            border-bottom: 3px solid $bottom-line-color
+            border-bottom: 1px solid $bottom-line-color
             transition: all .8s
   .logo
     width: 300px
@@ -59,8 +60,8 @@ body
 .section-title
   text-align: center
   position: relative
-  padding-bottom: 0.7rem
-  font-weight: 300
+  font-weight: 200
+  line-height: 3rem
 
 .content
   margin-top: 93px
@@ -76,8 +77,8 @@ body
         left: 50%
         transform: translate(-50%, -50%)
 
-  #services-section
-    margin-top: 2rem
+  .services-section
+    margin-top: 93px
     background: #fcfcfc
     &:before
       content: ""
@@ -91,9 +92,8 @@ body
         bottom: 0
         left: 50%
         width: 10%
-        height: 5px
+        height: 1px
         margin-left: -5%
-        margin-top: 5px
         background: $background-dark
 
     .articles-wrapper
@@ -103,9 +103,9 @@ body
           margin-bottom: 15px
           h5
             display: inline
-            font-weight: 600
-            border-bottom: 4px solid $bottom-line-color
-            padding-bottom: 4px
+            font-weight: 400
+            border-bottom: 1px solid $bottom-line-color
+            padding-bottom: 1px
         line-height: 2
         border-radius: 10px
         background: #ffffff
@@ -117,21 +117,21 @@ body
           background: transparentize($color-light, .8)
           transition: background-color .8s
           h5
-            border-bottom: 4px solid $bottom-line-color-dark
+            border-bottom: 1px solid $bottom-line-color-dark
             transition: border-bottom-color .8s
         .more-button__wrapper
           text-align: end
           .more-button
-            border: 3px solid $bottom-line-color
-            border-radius: 25px
+            border: 1px solid $bottom-line-color
+            border-radius: 15px
             transition: transform .2s
             &:hover
-              transform: scale(1.1)
+              transform: scale(1.02)
               background: $bottom-line-color
               color: #ffffff
-              font-weight: 600
+              font-weight: 300
 
-  #about-us-section
+  .about-us-section
     &:before
       content: ""
       display: block
@@ -246,7 +246,7 @@ body
           color: $color-light
     .footer-contacts-list
       .footer-contacts-list__item
-        font-weight: 600
+        font-weight: 400
     .footer-logo-tagline
       display: flex
       align-items: center
@@ -255,6 +255,7 @@ body
       img
         width: 300px
         margin: 0 1rem
+        color: #3AFFDC
     .rights-block
       color: $color-light
       text-align: center
@@ -292,7 +293,7 @@ body
             letter-spacing: 2px
 
   .content
-    #services-section
+    .services-section
       .title
         &:after
           content: ""
@@ -325,7 +326,7 @@ body
             margin: auto
 
   .content
-    #about-us-section
+    .about-us-section
       h2
         &:after
           content: ""
