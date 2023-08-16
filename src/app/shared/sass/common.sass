@@ -62,7 +62,7 @@ body
   line-height: 3rem
 
 .content
-  margin-top: 93px
+  margin-top: 113px
   .title-image-section
     .bg-image-wrapper
       position: relative
@@ -76,13 +76,13 @@ body
         transform: translate(-50%, -50%)
 
   .services-section
-    margin-top: 93px
+    margin-top: 113px
     background: #fcfcfc
     &:before
       content: ""
       display: block
-      height: 93px
-      margin: -93px 0 0
+      height: 113px
+      margin: -113px 0 0
     .title
       &:after
         content: ""
@@ -133,8 +133,8 @@ body
     &:before
       content: ""
       display: block
-      height: 93px
-      margin: -93px 0 0
+      height: 113px
+      margin: -113px 0 0
     h2
       &:after
         content: ""
@@ -175,8 +175,8 @@ body
     &:before
       content: ""
       display: block
-      height: 93px
-      margin: -93px 0 0
+      height: 113px
+      margin: -113px 0 0
     margin-top: 2rem
     background: #fcfcfc
     h2
@@ -240,6 +240,7 @@ body
           text-decoration: none
           line-height: 2.5
           padding: 5px
+          cursor: pointer
           border: 1px solid transparent
           transition: border .1s ease-in
           &:hover
@@ -264,12 +265,38 @@ body
 .hidden
   display: none
 
+.section
+  justify-content: center
+  .title
+    &:after
+      content: ""
+      position: absolute
+      bottom: 0
+      left: 50%
+      width: 10%
+      height: 1px
+      margin-left: -5%
+      background: $background-dark
+.article
+  text-align: justify
+  &__wrapper
+    justify-content: center
+  &__item
+    margin: 1rem 0
+    i
+      &:before
+        padding-right: .5rem
+  header
+    h5
+      display: inline-block
+      border-bottom: 1px solid $bottom-line-color
+
 @media (min-width: 1920px)
   .content
     .title-image-section
       .bg-image-wrapper
         height: 100vh
-        margin-top: -93px
+        margin-top: -113px
         h2
           top: 147px
 

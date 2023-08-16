@@ -1,0 +1,121 @@
+<div class="container-fluid">
+  <nav class="navbar fixed-top navbar-expand-md bg-white main-navigation" id="headerNavigation">
+    <div class="container-fluid">
+      <div class="image__wrapper">
+        <a routerLink="" class="image__link navbar-brand">
+          <img ngSrc="./assets/img/full-logo-grey.svg" alt="РусПромИнвест" id="logo" class="logo"
+               width="300" height="100">
+        </a>
+      </div>
+
+      <div class="navigation-list-wrapper">
+        <ul class="navbar-nav navigation-list">
+          <li class="nav-item text-center">
+            <a class="nav-link" routerLink="/services">Услуги</a>
+          </li>
+
+          <li class="nav-item text-center">
+            <a class="nav-link" routerLink="/about-us">О нас</a>
+          </li>
+
+          <li class="nav-item text-center">
+            <a class="nav-link" routerLink="/faq">Faq's</a>
+          </li>
+
+          <li class="nav-item text-center">
+            <a class="nav-link" routerLink="/contacts">Контакты</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="content">
+    <router-outlet></router-outlet>
+    <section class="footer-section row">
+      <h2 class="hidden">РусПромИнвест</h2>
+      <article class="footer-column col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+        <h5 class="footer-column-title">Услуги</h5>
+
+        <hr class="column-divider">
+
+        <ul class="footer-list footer-services-list">
+          <li class="footer-list__item footer-services-list__item">
+            <a routerLink="/services">Бизнес-анализ</a>
+          </li>
+          <li class="footer-list__item footer-services-list__item">
+            <a routerLink="/services">Консалтинг</a>
+          </li>
+          <li class="footer-list__item footer-services-list__item">
+            <a routerLink="/services">Оценочная деятельность</a>
+          </li>
+          <li class="footer-list__item footer-services-list__item">
+            <a routerLink="/services">Юридическое сопровождение</a>
+          </li>
+        </ul>
+      </article>
+
+      <article class="footer-column col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+        <h5 class="footer-column-title">О компании</h5>
+
+        <hr class="column-divider">
+
+        <ul class="footer-list footer-about-us-list">
+          <li class="footer-list__item footer-about-us-list__item">
+            <a routerLink="/about-us">Наши сотрудники</a>
+          </li>
+          <li class="footer-list__item footer-about-us-list__item">
+            <a routerLink="/about-us">Сертификаты и номинации</a>
+          </li>
+          <li class="footer-list__item footer-about-us-list__item">
+            <a routerLink="/about-us">Юридическая информация</a>
+          </li>
+        </ul>
+      </article>
+
+      <article class="footer-column col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+        <h5 class="footer-column-title">Контакты</h5>
+
+        <hr class="column-divider">
+
+        <footer>
+          <ul class="footer-list footer-contacts-list">
+            <li class="footer-list__item footer-contacts-list__item">
+              <i class="bi bi-telephone"></i>
+              <a href="tel:+79787181311">+7 (978) 718-13-11</a>
+            </li>
+            <li class="footer-list__item footer-contacts-list__item">
+              <i class="bi bi-envelope"></i>
+              <a href="mailto:simferopol.jurart@gmail.com">simferopol.jurart@gmail.com</a>
+            </li>
+            <li class="footer-list__item footer-contacts-list__item">
+              <address routerLink="/contacts">
+                <i class="bi bi-house"></i>
+                295014, Республика Крым, г. Симферополь, ул. Хацко, д. 17
+              </address>
+            </li>
+          </ul>
+        </footer>
+      </article>
+
+      <hr class="common-footer-divider">
+
+      <div class="footer-logo-tagline row">
+        <div class="footer-logo__wrapper col-sm-6 col-md-6 col-lg-6 col-xl-8 col-xxl-8">
+          <a routerLink="/">
+            <img ngSrc="./assets/img/full-logo-white.svg" alt="РусПромИнвест" class="logo" height="100" width="300">
+          </a>
+        </div>
+
+        <div class="footer-tagline__wrapper col-sm-6 col-md-6 col-lg-6 col-xl-4 col-xxl-4">
+          <span>Слоган компании!</span>
+        </div>
+      </div>
+
+      <footer class="rights-block">
+        <p>
+          2023 ©Все права защищены.
+        </p>
+      </footer>
+    </section>
+  </div>
+</div>
