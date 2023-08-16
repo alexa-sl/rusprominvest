@@ -10,6 +10,7 @@ import { FaqPageComponent } from './faq-page/faq-page.component';
 import { ContactsPageComponent } from './contacts-page/contacts-page.component';
 import { AboutUsPageComponent } from './about-us-page/about-us-page.component';
 import {NgOptimizedImage} from "@angular/common";
+import {ImageSliderModule} from "./shared/image-slider/image.slider/image.slider.module";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {NgOptimizedImage} from "@angular/common";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    ImageSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
