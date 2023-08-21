@@ -11,6 +11,8 @@ import { ContactsPageComponent } from './contacts-page/contacts-page.component';
 import { AboutUsPageComponent } from './about-us-page/about-us-page.component';
 import {NgOptimizedImage} from "@angular/common";
 import {ImageSliderModule} from "./shared/image-slider/image.slider/image.slider.module";
+import { OrderFormComponent } from './shared/order-form/order-form.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -20,13 +22,16 @@ import {ImageSliderModule} from "./shared/image-slider/image.slider/image.slider
     ServicesPageComponent,
     FaqPageComponent,
     ContactsPageComponent,
-    AboutUsPageComponent
+    AboutUsPageComponent,
+    OrderFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgOptimizedImage,
-    ImageSliderModule
+    ImageSliderModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

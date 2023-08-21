@@ -1,0 +1,46 @@
+<form class="order-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <header>
+    Оставьте свой номер телефона и наш консультант свяжется с Вами для бесплатной консультации
+  </header>
+
+  <div class="form-group">
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Имя"
+      formControlName="name"
+    >
+  </div>
+
+  <div class="form-group">
+    <input
+      type="tel"
+      class="form-control"
+      id="phone"
+      aria-describedby="phoneHelp"
+      placeholder="Номер телефона"
+      formControlName="phone"
+    >
+    <div
+      class="invalid"
+      *ngIf="(form.touched && form.invalid) || (form.get('phone')?.touched && form.get('phone')?.hasError('required'))"
+    >
+      Пожалуйста, укажите номер телефона!
+    </div>
+
+    <!--    <small id="phoneHelp" class="form-text text-muted">Мы не передаем данные третьим лицам</small>-->
+  </div>
+
+  <div class="form-group">
+    <small class="form-text text-muted">
+      Вы можете прикрепить документы, которые понадобятся для проведения оценки
+    </small>
+    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+  </div>
+  <div class="more-button__wrapper">
+    <button type="submit" class="more-button btn">
+      Оставить заявку
+    </button>
+  </div>
+
+</form>
