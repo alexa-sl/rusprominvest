@@ -6,6 +6,7 @@ import {MainPageComponent} from "./main-page/main-page.component";
 import {AboutUsPageComponent} from "./about-us-page/about-us-page.component";
 import {FaqPageComponent} from "./faq-page/faq-page.component";
 import {ContactsPageComponent} from "./contacts-page/contacts-page.component";
+import {AdminComponent} from "./admin/admin.component";
 
 const routes: Routes = [
   {
@@ -17,7 +18,8 @@ const routes: Routes = [
       {path: 'about-us', component: AboutUsPageComponent},
       {path: 'faq', component: FaqPageComponent},
       {path: 'services', component: ServicesPageComponent},
-      {path: 'contacts', component: ContactsPageComponent}
+      {path: 'contacts', component: ContactsPageComponent},
+      {path: 'admin', component: AdminComponent}
     ]
   }
 ];

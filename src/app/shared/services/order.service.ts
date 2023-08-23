@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable, tap} from "rxjs";
 import {IOrder} from "../interfaces/IOrder";
 import {environment} from "../../../environments/environment.development";
 
@@ -13,13 +12,13 @@ export class OrderService {
     private http: HttpClient
   ) {}
 
-  putOrder(data: IOrder): Observable<any>{
-    // const url = environment.apiUrl + '/orders';
+  putOrder(data: IOrder) {
     const url = environment.apiUrl + '/orders';
-    console.log('test post', url);
-    return this.http
-      .post(url, data)
-      .pipe(tap(res => console.log('response!', res, data)))
+    return this.http.post(url, data);
+  }
 
+  getOrders() {
+    const url = environment.apiUrl + '/orders';
+    return this.http.get<[IOrder]>(url);
   }
 }

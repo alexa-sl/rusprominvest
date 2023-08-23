@@ -1,1 +1,30 @@
-<p>admin works!</p>
+<div class="services-section">
+  <div class="row section">
+    <div class="col-8">
+      <table>
+        <thead>
+        <tr>
+          <th>
+            Имя
+          </th>
+          <th class="px-5">
+            Телефон
+          </th>
+          <th>
+            Дата заявки
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let order of orders$ | async">
+          <td>{{order.name}}</td>
+          <td class="px-5">{{order.phone}}</td>
+          <!--    <td>{{order.date}}</td>-->
+        </tr>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+</div>
+

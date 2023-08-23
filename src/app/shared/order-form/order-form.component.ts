@@ -9,8 +9,6 @@ import {IOrder} from "../interfaces/IOrder";
   styleUrls: ['./order-form.component.sass']
 })
 
-
-
 export class OrderFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
@@ -19,6 +17,7 @@ export class OrderFormComponent implements OnInit {
 
   form: FormGroup;
   isSent$: Boolean = false;
+  isFailed$: Boolean = false;
 
   ngOnInit() {
     this.initializeForm();
@@ -44,6 +43,8 @@ export class OrderFormComponent implements OnInit {
       },
       error: (err) => {
         console.log(err);
+        this.isFailed$ = true;
+        this.form.reset();
       }
     })
   }
