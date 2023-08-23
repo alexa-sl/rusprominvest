@@ -13,6 +13,8 @@ import {NgOptimizedImage} from "@angular/common";
 import {ImageSliderModule} from "./shared/image-slider/image.slider/image.slider.module";
 import { OrderFormComponent } from './shared/order-form/order-form.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     FaqPageComponent,
     ContactsPageComponent,
     AboutUsPageComponent,
-    OrderFormComponent
+    OrderFormComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     NgOptimizedImage,
     ImageSliderModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

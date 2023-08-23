@@ -37,10 +37,13 @@
     </small>
     <input type="file" class="form-control-file" id="exampleFormControlFile1">
   </div>
-  <div class="more-button__wrapper">
-    <button type="submit" class="more-button btn">
+  <div class="more-button__wrapper mb-2">
+    <button type="submit" class="more-button btn" [disabled]="form.invalid">
       Оставить заявку
     </button>
   </div>
+  <small *ngIf="isSent$">
+    <p>Благодарим за заявку, наши специалисты свяжутся с Вами в ближайший рабочий день!</p>
+  </small>
 
 </form>
