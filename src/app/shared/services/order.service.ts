@@ -18,7 +18,6 @@ export class OrderService {
   }
 
   getOrders() {
-    const url = environment.apiUrl + '/orders';
-    return this.http.get<[IOrder]>(url);
+    return this.http.get<IOrder[]>(environment.apiUrl + '/orders');
   }
 }

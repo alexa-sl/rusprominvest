@@ -12,7 +12,7 @@ export class AdminComponent implements OnInit {
   constructor(
     private orderService: OrderService
   ) {};
-  orders$: Observable<[IOrder]>;
+  orders$: Observable<IOrder[]>;
 
   ngOnInit() {
     this.orders$ = this.orderService.getOrders();

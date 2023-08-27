@@ -7,6 +7,7 @@ import {AboutUsPageComponent} from "./about-us-page/about-us-page.component";
 import {FaqPageComponent} from "./faq-page/faq-page.component";
 import {ContactsPageComponent} from "./contacts-page/contacts-page.component";
 import {AdminComponent} from "./admin/admin.component";
+import {LoginComponent} from "./login/login.component";
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
       {path: 'faq', component: FaqPageComponent},
       {path: 'services', component: ServicesPageComponent},
       {path: 'contacts', component: ContactsPageComponent},
+      {path: 'login', component: LoginComponent},
       {path: 'admin', component: AdminComponent}
     ]
   }
