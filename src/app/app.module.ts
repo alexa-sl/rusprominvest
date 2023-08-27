@@ -16,6 +16,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
+import {RegisterComponent} from "./register/register.component";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { LoginComponent } from './login/login.component';
     AboutUsPageComponent,
     OrderFormComponent,
     AdminComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

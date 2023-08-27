@@ -11,8 +11,10 @@ export class AuthService {
     private http: HttpClient
   ){}
 
-  registration (username: string, password: string) {
+  registration (data:{username: string, password: string}) {
+    const url = environment.authApiUrl + '/auth/registration';
 
+    return this.http.post(url,data);
   };
 
   login(data: {}) {
@@ -20,4 +22,5 @@ export class AuthService {
 
     return this.http.post(url,data);
   };
+
 }
