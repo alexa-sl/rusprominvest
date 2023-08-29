@@ -1,6 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../shared/services/auth.service";
+import {Store} from "@ngrx/store";
+import {authActions} from "../auth/store/actions/action";
+import {IRegisterRequest} from "../auth/types/IRegisterRequest";
+import {selectIsSubmitting} from "../auth/store/reducers/reducers";
 
 @Component({
   selector: 'app-register',
@@ -10,10 +14,12 @@ import {AuthService} from "../shared/services/auth.service";
 export class RegisterComponent implements OnInit  {
   constructor(
     private fb: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private store: Store
   ) {}
 
   form: FormGroup;
+  isSubmitting$ = this.store.select(selectIsSubmitting);
 
   ngOnInit() {
     this.initForm();
@@ -27,11 +33,12 @@ export class RegisterComponent implements OnInit  {
   }
 
   onSubmit () {
-    this.registration();
+    const request: IRegisterRequest = this.form.getRawValue();
+    this.store.dispatch(authActions.register(request));
   };
 
-  registration() {
-    this.authService.registration(this.form.value).subscribe({
+  registration(data: IRegisterRequest) {
+    this.authService.registration(data).subscribe({
       next: (res) => {console.log('registration', res)}
     });
   }

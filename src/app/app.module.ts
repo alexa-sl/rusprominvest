@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {isDevMode, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -17,6 +17,11 @@ import {HttpClientModule} from "@angular/common/http";
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
 import {RegisterComponent} from "./register/register.component";
+import {provideState, provideStore} from "@ngrx/store";
+import {provideStoreDevtools} from "@ngrx/store-devtools";
+import {authFeatureKey, authReducer} from "./auth/store/reducers/reducers";
+import * as authEffects from "./auth/store/effects";
+import {provideEffects} from "@ngrx/effects";
 
 @NgModule({
   declarations: [
@@ -41,7 +46,18 @@ import {RegisterComponent} from "./register/register.component";
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    provideStore(),
+    provideState(authFeatureKey, authReducer),
+    provideEffects(authEffects),
+    provideStoreDevtools({
+      maxAge: 25,
+      logOnly: !isDevMode(),
+      autoPause: true,
+      trace: false,
+      traceLimit: 75
+    })
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
