@@ -24,8 +24,7 @@ export class RegisterComponent implements OnInit  {
     isSubmitting: this.store.select(selectIsSubmitting),
     isLoading: this.store.select(selectIsLoading),
     validationErrors: this.store.select(selectValidationErrors)
-  })
-  isSubmitting$ = this.store.select(selectIsSubmitting);
+  });
 
   ngOnInit() {
     this.initForm();
@@ -42,10 +41,4 @@ export class RegisterComponent implements OnInit  {
     const request: IRegisterRequest = this.form.getRawValue();
     this.store.dispatch(authActions.register(request));
   };
-
-  registration(data: IRegisterRequest) {
-    this.authService.registration(data).subscribe({
-      next: (res) => {console.log('registration', res)}
-    });
-  }
 }

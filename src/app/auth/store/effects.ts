@@ -26,3 +26,24 @@ export const registerEffects = createEffect((
     })
   );
 }, {functional: true});
+
+export const loginEffects = createEffect((
+  actions$ = inject(Actions),
+  authService = inject(AuthService)
+) => {
+  return actions$.pipe(
+    ofType(authActions.login),
+    switchMap((request) => {
+      return authService.login(request).pipe(
+        map((currentUser: IUser) => {
+          return authActions.loginSuccess({user: currentUser});
+        }),
+        catchError((errorResponse: HttpErrorResponse) => {
+          return of(authActions.loginFailure({
+            errors: errorResponse.error.errors
+          }));
+        })
+      )
+    })
+  );
+}, {functional: true});

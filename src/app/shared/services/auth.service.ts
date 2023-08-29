@@ -20,10 +20,10 @@ export class AuthService {
     return this.http.post<IUser>(url, data);
   };
 
-  login(data: {}) {
+  login(data: IRegisterRequest) {
     const url = environment.authApiUrl + '/auth/login';
 
-    return this.http.post(url,data);
+    return this.http.post<IUser>(url,data);
   };
 
 }
