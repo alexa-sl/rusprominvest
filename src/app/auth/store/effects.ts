@@ -4,8 +4,9 @@ import {AuthService} from "../../shared/services/auth.service";
 import {authActions} from "./actions/action";
 import {catchError, map, of, switchMap} from "rxjs";
 import {IUser} from "../../shared/interfaces/IUser";
+import {HttpErrorResponse} from "@angular/common/http";
 
-export const refisterEffects = createEffect((
+export const registerEffects = createEffect((
   actions$ = inject(Actions),
   authService = inject(AuthService)
 ) => {
@@ -14,10 +15,12 @@ export const refisterEffects = createEffect((
     switchMap((request) => {
       return authService.registration(request).pipe(
         map((currentUser: IUser) => {
-          return authActions.registerSuccess();
+          return authActions.registerSuccess({user: currentUser});
         }),
-        catchError(() => {
-          return of(authActions.registerFailure());
+        catchError((errorResponse: HttpErrorResponse) => {
+          return of(authActions.registerFailure({
+            errors: errorResponse.error.errors
+          }));
         })
       )
     })

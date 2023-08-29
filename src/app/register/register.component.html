@@ -1,8 +1,12 @@
-
+<ng-container *ngIf="data$ | async as data">
 <div class="row section">
   <div class="col-6">
     <form class="register-form" [formGroup]="form" (ngSubmit)="onSubmit()">
       <h2>Зарегистрироваться</h2>
+      <app-backend-errors
+        *ngIf="data.validationErrors"
+        [backendErrors]="data.validationErrors"
+      ></app-backend-errors>
       <div class="form-group">
         <label for="name">Логин</label>
         <input
@@ -25,9 +29,10 @@
         <button
           type="submit"
           class="btn order-btn"
-          [disabled]="isSubmitting$ | async"
+          [disabled]="data.isSubmitting"
         >Зарегистрироваться</button>
       </div>
     </form>
   </div>
 </div>
+</ng-container>

@@ -4,7 +4,8 @@ import {AuthService} from "../shared/services/auth.service";
 import {Store} from "@ngrx/store";
 import {authActions} from "../auth/store/actions/action";
 import {IRegisterRequest} from "../auth/types/IRegisterRequest";
-import {selectIsSubmitting} from "../auth/store/reducers/reducers";
+import {selectIsLoading, selectIsSubmitting, selectValidationErrors} from "../auth/store/reducers/reducers";
+import {combineLatest} from "rxjs";
 
 @Component({
   selector: 'app-register',
@@ -19,6 +20,11 @@ export class RegisterComponent implements OnInit  {
   ) {}
 
   form: FormGroup;
+  data$ = combineLatest({
+    isSubmitting: this.store.select(selectIsSubmitting),
+    isLoading: this.store.select(selectIsLoading),
+    validationErrors: this.store.select(selectValidationErrors)
+  })
   isSubmitting$ = this.store.select(selectIsSubmitting);
 
   ngOnInit() {

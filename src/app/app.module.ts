@@ -22,6 +22,7 @@ import {provideStoreDevtools} from "@ngrx/store-devtools";
 import {authFeatureKey, authReducer} from "./auth/store/reducers/reducers";
 import * as authEffects from "./auth/store/effects";
 import {provideEffects} from "@ngrx/effects";
+import { BackendErrorsComponent } from './shared/backend-errors/backend-errors.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {provideEffects} from "@ngrx/effects";
     OrderFormComponent,
     AdminComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    BackendErrorsComponent
   ],
   imports: [
     BrowserModule,
