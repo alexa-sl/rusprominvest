@@ -25,6 +25,7 @@ import {provideEffects} from "@ngrx/effects";
 import { BackendErrorsComponent } from './shared/backend-errors/backend-errors.component';
 import {appInitializer} from "./helpers/app.initializer";
 import {JwtInterceptor} from "./helpers/auth.interceptor";
+import {NgxMaskDirective, provideEnvironmentNgxMask} from "ngx-mask";
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import {JwtInterceptor} from "./helpers/auth.interceptor";
     ImageSliderModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxMaskDirective
   ],
   providers: [
     provideStore(),
@@ -72,6 +74,7 @@ import {JwtInterceptor} from "./helpers/auth.interceptor";
       useClass: JwtInterceptor,
       multi: true
     },
+    provideEnvironmentNgxMask()
   ],
   bootstrap: [AppComponent]
 })

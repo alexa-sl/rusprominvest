@@ -13,11 +13,11 @@ export class OrderService {
   ) {}
 
   putOrder(data: IOrder) {
-    const url = environment.apiUrl + '/orders';
+    const url = environment.ordersApiUrl + '/orders/registerOrder';
     return this.http.post(url, data);
   }
 
   getOrders() {
-    return this.http.get<IOrder[]>(environment.authApiUrl + '/auth/users', {withCredentials: true});
+    return this.http.get<IOrder[]>(environment.ordersApiUrl + '/orders/getOrders', {withCredentials: true});
   }
 }

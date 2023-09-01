@@ -19,22 +19,27 @@ export class OrderFormComponent implements OnInit {
   isSent$: Boolean = false;
   isFailed$: Boolean = false;
 
-  ngOnInit() {
-    this.initializeForm();
-  }
-
   initializeForm() {
     this.form = this.fb.group({
-      name: [null],
-      phone: [null, [Validators.required, Validators.pattern('[- +()0-9]+')]]
+      clientName: [null],
+      clientPhone: [null,
+        [
+          Validators.required,
+          Validators.maxLength(14)
+        ]
+      ]
     })
-  }
+  };
+
+  ngOnInit() {
+    this.initializeForm();
+  };
 
   onSubmit() {
     if (this.form.invalid) {
       return;
     }
-    const data: IOrder = this.form.value;
+    const data: IOrder = this.form.getRawValue();
 
     this.orderService.putOrder(data).subscribe({
       next: () => {

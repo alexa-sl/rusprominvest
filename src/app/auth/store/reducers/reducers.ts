@@ -8,7 +8,7 @@ const initialState: IAuthState = {
   currentUser: undefined,
   validationErrors: null
 };
-const authFeature = createFeature({
+const authFeature= createFeature({
   name: 'auth',
   reducer: createReducer(
     initialState,

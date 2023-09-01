@@ -1,4 +1,4 @@
 export interface IOrder {
-  name: string;
-  phone: string
+  clientName: string;
+  clientPhone: string
 }
