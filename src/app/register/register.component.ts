@@ -4,7 +4,12 @@ import {AuthService} from "../shared/services/auth.service";
 import {Store} from "@ngrx/store";
 import {authActions} from "../auth/store/actions/action";
 import {IRegisterRequest} from "../auth/types/IRegisterRequest";
-import {selectIsLoading, selectIsSubmitting, selectValidationErrors} from "../auth/store/reducers/reducers";
+import {
+  selectCurrentUser,
+  selectIsLoading,
+  selectIsSubmitting,
+  selectValidationErrors
+} from "../auth/store/reducers/reducers";
 import {combineLatest} from "rxjs";
 
 @Component({
@@ -23,7 +28,8 @@ export class RegisterComponent implements OnInit  {
   data$ = combineLatest({
     isSubmitting: this.store.select(selectIsSubmitting),
     isLoading: this.store.select(selectIsLoading),
-    validationErrors: this.store.select(selectValidationErrors)
+    validationErrors: this.store.select(selectValidationErrors),
+    currentUser: this.store.select(selectCurrentUser)
   });
 
   ngOnInit() {
@@ -41,4 +47,8 @@ export class RegisterComponent implements OnInit  {
     const request: IRegisterRequest = this.form.getRawValue();
     this.store.dispatch(authActions.register(request));
   };
+
+  logout() {
+    this.store.dispatch(authActions.logout());
+  }
 }

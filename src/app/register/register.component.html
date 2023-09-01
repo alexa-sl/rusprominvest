@@ -1,7 +1,12 @@
 <ng-container *ngIf="data$ | async as data">
 <div class="row section">
   <div class="col-6">
-    <form class="register-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <form
+      class="register-form"
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+      *ngIf="!data.currentUser else loggedIn"
+    >
       <h2>Зарегистрироваться</h2>
       <app-backend-errors
         *ngIf="data.validationErrors"
@@ -35,4 +40,16 @@
     </form>
   </div>
 </div>
+  <ng-template #loggedIn>
+    <div class="mt-2 mb-5">
+      <h3>Вы вошли под пользователем {{ data.currentUser?.user?.username }}</h3>
+      <div class="more-button__wrapper text-center">
+        <button
+          (click)="logout()"
+          class="btn order-btn my-5"
+        >Выйти
+        </button>
+      </div>
+    </div>
+  </ng-template>
 </ng-container>

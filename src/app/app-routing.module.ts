@@ -22,9 +22,9 @@ const routes: Routes = [
       {path: 'faq', component: FaqPageComponent},
       {path: 'services', component: ServicesPageComponent},
       {path: 'contacts', component: ContactsPageComponent},
-      {path: 'login', component: LoginComponent},
-      {path: 'register', component: RegisterComponent, canActivate: [AuthGuard]},
-      {path: 'admin', component: AdminComponent}
+      {path: 'insideLoginUser', component: LoginComponent},
+      {path: 'insideCreateNewUser', component: RegisterComponent, canActivate: [AuthGuard]},
+      {path: 'insideGetOrders', component: AdminComponent}
     ]
   }
 ];

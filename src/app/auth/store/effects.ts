@@ -2,13 +2,15 @@ import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {inject} from "@angular/core";
 import {AuthService} from "../../shared/services/auth.service";
 import {authActions} from "./actions/action";
-import {catchError, map, of, switchMap} from "rxjs";
+import {catchError, map, of, switchMap, tap} from "rxjs";
 import {IUser} from "../../shared/interfaces/IUser";
 import {HttpErrorResponse} from "@angular/common/http";
+import {Router} from "@angular/router";
 
 export const registerEffects = createEffect((
   actions$ = inject(Actions),
-  authService = inject(AuthService)
+  authService = inject(AuthService),
+  router = inject(Router)
 ) => {
   return actions$.pipe(
     ofType(authActions.register),
@@ -19,6 +21,7 @@ export const registerEffects = createEffect((
           localStorage.setItem('token', currentUser.accessToken);
           return authActions.registerSuccess({user: currentUser});
         }),
+        tap(() => router.navigate(['/insideGetOrders'])),
         catchError((errorResponse: HttpErrorResponse) => {
           return of(authActions.registerFailure({
             errors: errorResponse.error.errors
@@ -31,7 +34,8 @@ export const registerEffects = createEffect((
 
 export const loginEffects = createEffect((
   actions$ = inject(Actions),
-  authService = inject(AuthService)
+  authService = inject(AuthService),
+  router = inject(Router)
 ) => {
   return actions$.pipe(
     ofType(authActions.login),
@@ -42,6 +46,7 @@ export const loginEffects = createEffect((
           localStorage.setItem('token', currentUser.accessToken);
           return authActions.loginSuccess({user: currentUser});
         }),
+        tap(() => router.navigate(['/insideGetOrders'])),
         catchError((errorResponse: HttpErrorResponse) => {
           return of(authActions.loginFailure({
             errors: errorResponse.error.errors

@@ -4,7 +4,6 @@ import {AuthService} from "../shared/services/auth.service";
 import {IRegisterRequest} from "../auth/types/IRegisterRequest";
 import {authActions} from "../auth/store/actions/action";
 import {Store} from "@ngrx/store";
-
 import {selectCurrentUser, selectIsSubmitting, selectValidationErrors} from "../auth/store/reducers/reducers";
 import {combineLatest} from "rxjs";
 
@@ -42,4 +41,8 @@ export class LoginComponent implements OnInit  {
     const request: IRegisterRequest = this.form.getRawValue();
     this.store.dispatch(authActions.login(request));
   };
+
+  logout() {
+    this.store.dispatch(authActions.logout());
+  }
 }

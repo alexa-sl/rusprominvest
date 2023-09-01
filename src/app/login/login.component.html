@@ -1,38 +1,55 @@
 <ng-container *ngIf="data$ | async as data">
-<div class="row section">
-  <div class="col-6">
-    <form class="login-form" [formGroup]="form" (ngSubmit)="onSubmit()">
-      <h2>Войти</h2>
-      <app-backend-errors
-        *ngIf="data.validationErrors"
-        [backendErrors]="data.validationErrors"
-      ></app-backend-errors>
-      <div class="form-group">
-        <label for="name">Логин</label>
-        <input
-          type="text"
-          class="form-control"
-          id="name"
-          formControlName="username"
-          placeholder="введите логин">
-      </div>
-      <div class="form-group">
-        <label for="password">Пароль</label>
-        <input
-          type="text"
-          class="form-control"
-          id="password"
-          formControlName="password"
-          placeholder="Пароль">
-      </div>
-      <div class="more-button__wrapper">
-        <button
-          type="submit"
-          class="btn order-btn"
-          [disabled]="data.isSubmitting"
-        >Войти</button>
-      </div>
-    </form>
+  <div class="row section">
+    <div class="col-6">
+      <form class="login-form"
+            [formGroup]="form"
+            (ngSubmit)="onSubmit()"
+            *ngIf="!data.currentUser else loggedIn"
+      >
+        <h2>Войти</h2>
+        <app-backend-errors
+          *ngIf="data.validationErrors"
+          [backendErrors]="data.validationErrors"
+        ></app-backend-errors>
+        <div class="form-group">
+          <label for="name">Логин</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            formControlName="username"
+            placeholder="введите логин">
+        </div>
+        <div class="form-group">
+          <label for="password">Пароль</label>
+          <input
+            type="text"
+            class="form-control"
+            id="password"
+            formControlName="password"
+            placeholder="Пароль">
+        </div>
+        <div class="more-button__wrapper">
+          <button
+            type="submit"
+            class="btn order-btn"
+            [disabled]="data.isSubmitting"
+          >Войти
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
+  <ng-template #loggedIn>
+    <div class="mt-2 mb-5">
+      <h3>Вы вошли под пользователем {{ data.currentUser?.user?.username }}</h3>
+      <div class="more-button__wrapper text-center">
+        <button
+          (click)="logout()"
+          class="btn order-btn my-5"
+        >Выйти
+        </button>
+      </div>
+    </div>
+  </ng-template>
 </ng-container>

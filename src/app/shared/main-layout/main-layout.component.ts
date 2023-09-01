@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {combineLatest} from "rxjs";
 import {Store} from "@ngrx/store";
 import {selectCurrentUser} from "../../auth/store/reducers/reducers";
-import {authActions} from "../../auth/store/actions/action";
 
 @Component({
   selector: 'app-main-layout',
@@ -16,7 +15,4 @@ export class MainLayoutComponent {
     currentUser: this.store.select(selectCurrentUser)
   });
 
- logout() {
-   this.store.dispatch(authActions.logout());
- }
 }
