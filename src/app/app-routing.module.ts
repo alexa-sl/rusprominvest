@@ -9,6 +9,7 @@ import {ContactsPageComponent} from "./contacts-page/contacts-page.component";
 import {AdminComponent} from "./admin/admin.component";
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
+import {AuthGuard} from "./helpers/auth.guard";
 
 const routes: Routes = [
   {
@@ -22,7 +23,7 @@ const routes: Routes = [
       {path: 'services', component: ServicesPageComponent},
       {path: 'contacts', component: ContactsPageComponent},
       {path: 'login', component: LoginComponent},
-      {path: 'register', component: RegisterComponent},
+      {path: 'register', component: RegisterComponent, canActivate: [AuthGuard]},
       {path: 'admin', component: AdminComponent}
     ]
   }

@@ -18,6 +18,6 @@ export class OrderService {
   }
 
   getOrders() {
-    return this.http.get<IOrder[]>(environment.apiUrl + '/orders');
+    return this.http.get<IOrder[]>(environment.authApiUrl + '/auth/users', {withCredentials: true});
   }
 }

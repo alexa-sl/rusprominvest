@@ -17,13 +17,33 @@ export class AuthService {
   registration (data: IRegisterRequest): Observable<IUser> {
     const url = environment.authApiUrl + '/auth/registration';
 
-    return this.http.post<IUser>(url, data);
+    return this.http.post<IUser>(url, data, {
+      withCredentials: true
+    });
   };
 
   login(data: IRegisterRequest) {
     const url = environment.authApiUrl + '/auth/login';
 
-    return this.http.post<IUser>(url,data);
+    return this.http.post<IUser>(url, data, {
+      withCredentials: true
+    });
+  };
+
+  logout() {
+    const url = environment.authApiUrl + '/auth/logout';
+
+    return this.http.post(url, {}, {
+      withCredentials: true
+    });
+  };
+
+  refresh() {
+    const url = environment.authApiUrl + '/auth/refresh';
+
+    return this.http.post<IUser>(url, {}, {
+      withCredentials: true
+    });
   };
 
 }

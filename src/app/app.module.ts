@@ -1,4 +1,4 @@
-import {isDevMode, NgModule} from '@angular/core';
+import {APP_INITIALIZER, isDevMode, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -13,16 +13,18 @@ import {NgOptimizedImage} from "@angular/common";
 import {ImageSliderModule} from "./shared/image-slider/image.slider/image.slider.module";
 import { OrderFormComponent } from './shared/order-form/order-form.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
 import {RegisterComponent} from "./register/register.component";
-import {provideState, provideStore} from "@ngrx/store";
+import {provideState, provideStore, Store} from "@ngrx/store";
 import {provideStoreDevtools} from "@ngrx/store-devtools";
 import {authFeatureKey, authReducer} from "./auth/store/reducers/reducers";
 import * as authEffects from "./auth/store/effects";
 import {provideEffects} from "@ngrx/effects";
 import { BackendErrorsComponent } from './shared/backend-errors/backend-errors.component';
+import {appInitializer} from "./helpers/app.initializer";
+import {JwtInterceptor} from "./helpers/auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -58,7 +60,18 @@ import { BackendErrorsComponent } from './shared/backend-errors/backend-errors.c
       autoPause: true,
       trace: false,
       traceLimit: 75
-    })
+    }),
+    {
+      provide: APP_INITIALIZER,
+      useFactory: appInitializer,
+      multi: true,
+      deps: [Store]
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    },
   ],
   bootstrap: [AppComponent]
 })

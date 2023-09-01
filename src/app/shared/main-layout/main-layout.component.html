@@ -20,6 +20,9 @@
       </button>
 
       <div class="navigation-list-wrapper collapse navbar-collapse" id="menu">
+        <div *ngIf="data$ | async as data" class="">
+          {{data.currentUser?.user?.username}}
+        </div>
         <ul class="navbar-nav navigation-list">
           <li class="nav-item text-center">
             <a class="nav-link" routerLink="/services">Услуги</a>
@@ -42,11 +45,15 @@
           </li>
 
           <li class="nav-item text-center">
-            <a class="nav-link" routerLink="/login">Lo</a>
+            <a class="nav-link" routerLink="/login">In</a>
           </li>
 
           <li class="nav-item text-center">
             <a class="nav-link" routerLink="/admin">Admin</a>
+          </li>
+
+          <li class="nav-item text-center">
+            <a class="nav-link" (click)="logout()">Out</a>
           </li>
         </ul>
       </div>
