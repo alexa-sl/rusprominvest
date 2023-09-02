@@ -10,6 +10,7 @@ import {AdminComponent} from "./admin/admin.component";
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import {AuthGuard} from "./helpers/auth.guard";
+import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 
 const routes: Routes = [
   {
@@ -24,7 +25,8 @@ const routes: Routes = [
       {path: 'contacts', component: ContactsPageComponent},
       {path: 'insideLoginUser', component: LoginComponent},
       {path: 'insideCreateNewUser', component: RegisterComponent, canActivate: [AuthGuard]},
-      {path: 'insideGetOrders', component: AdminComponent}
+      {path: 'insideGetOrders', component: AdminComponent},
+      {path: '**', component: PageNotFoundComponent}
     ]
   }
 ];

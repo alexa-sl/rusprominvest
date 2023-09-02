@@ -26,6 +26,7 @@ import { BackendErrorsComponent } from './shared/backend-errors/backend-errors.c
 import {appInitializer} from "./helpers/app.initializer";
 import {JwtInterceptor} from "./helpers/auth.interceptor";
 import {NgxMaskDirective, provideEnvironmentNgxMask} from "ngx-mask";
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {NgxMaskDirective, provideEnvironmentNgxMask} from "ngx-mask";
     AdminComponent,
     LoginComponent,
     RegisterComponent,
-    BackendErrorsComponent
+    BackendErrorsComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
