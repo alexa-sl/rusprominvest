@@ -14,10 +14,9 @@ export function appInitializer(store: Store) {
         .subscribe({
           next: () => {
             resolve('');
-          },
-          error: (e) => console.log('APP_INITIALIZER error', e)
+          }
         });
     });
   }
-  return () => console.log('test');
+  return () => true;
 }

@@ -46,8 +46,7 @@ export class OrderFormComponent implements OnInit {
         this.isSent$ = true;
         this.form.reset();
       },
-      error: (err) => {
-        console.log(err);
+      error: () => {
         this.isFailed$ = true;
         this.form.reset();
       }

@@ -17,7 +17,6 @@ export const registerEffects = createEffect((
     switchMap((request) => {
       return authService.registration(request).pipe(
         map((currentUser: IUser) => {
-          console.log('registered user', currentUser);
           localStorage.setItem('token', currentUser.accessToken);
           return authActions.registerSuccess({user: currentUser});
         }),
@@ -42,7 +41,6 @@ export const loginEffects = createEffect((
     switchMap((request) => {
       return authService.login(request).pipe(
         map((currentUser: IUser) => {
-          console.log('logged user', currentUser);
           localStorage.setItem('token', currentUser.accessToken);
           return authActions.loginSuccess({user: currentUser});
         }),
@@ -66,7 +64,6 @@ export const logoutEffects = createEffect((
     switchMap(() => {
       return authService.logout().pipe(
         map(() => {
-          console.log('logged user');
           localStorage.removeItem('token');
           return authActions.logoutSuccess();
         }),
