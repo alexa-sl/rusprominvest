@@ -5,6 +5,7 @@ import {IOrder} from "../shared/interfaces/IOrder";
 import {Store} from "@ngrx/store";
 import {selectCurrentUser} from "../auth/store/reducers/reducers";
 import {Router} from "@angular/router";
+import {authActions} from "../auth/store/actions/action";
 
 @Component({
   selector: 'app-admin',
@@ -26,6 +27,7 @@ export class AdminComponent implements OnInit {
   };
 
   logout() {
+    this.store.dispatch(authActions.logout());
     if (this.currentUser$) {
       this.router.navigate(['/insideLoginUser']).then();
     }
