@@ -27,6 +27,7 @@ import {appInitializer} from "./helpers/app.initializer";
 import {JwtInterceptor} from "./helpers/auth.interceptor";
 import {NgxMaskDirective, provideEnvironmentNgxMask} from "ngx-mask";
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {DomainInterceptor} from "./helpers/domain.interceptor";
 
 @NgModule({
   declarations: [
@@ -74,6 +75,11 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: DomainInterceptor,
       multi: true
     },
     provideEnvironmentNgxMask()
