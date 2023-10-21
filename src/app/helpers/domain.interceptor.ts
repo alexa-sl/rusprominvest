@@ -16,14 +16,14 @@ export class DomainInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const domain = this.document.location.hostname;
-    const ruDomain = 'https://rusprominwest.ru';
+    const rfDomainApi = 'https://xn--b1aghpgdghbiimc.xn--p1ai/';
     const rfDomain = 'xn--b1aghpgdghbiimc.xn--p1ai';
     const getDomain = function(string: string, subString: string, index: number) {
       return string.split(subString, index).join(subString);
     };
     const originalDomain = getDomain(req.url, '/', 3);
 
-    const replacedUrl = req.url.replace(originalDomain, ruDomain);
+    const replacedUrl = req.url.replace(originalDomain, rfDomainApi);
     let updReq = req;
 
     if (domain === rfDomain) {
