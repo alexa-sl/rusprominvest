@@ -27,6 +27,9 @@ export class DomainInterceptor implements HttpInterceptor {
       updReq = req.clone({url: replacedUrl});
     }
 
+    console.log('originalDomain', originalDomain);
+    console.log('replacedUrl', replacedUrl);
+    console.log('updReq', updReq);
     return next.handle(updReq);
   }
 }
