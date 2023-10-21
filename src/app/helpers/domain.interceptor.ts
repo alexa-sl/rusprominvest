@@ -13,14 +13,19 @@ export class DomainInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+    const ruDomain = 'https://rusprominwest.ru';
+    const rfDomain = 'https://xn--b1aghpgdghbiimc.xn--p1ai';
     const getDomain = function(string: string, subString: string, index: number) {
       return string.split(subString, index).join(subString);
     };
-
     const originalDomain = getDomain(req.url, '/', 3);
-    const replacedDomain = 'https://rusprominwest.ru';
-    const replacedUrl = req.url.replace(originalDomain, replacedDomain);
-    const updReq = req.clone({ url: replacedUrl });
+
+    const replacedUrl = req.url.replace(originalDomain, ruDomain);
+    let updReq = req;
+
+    if (originalDomain === rfDomain) {
+      updReq = req.clone({url: replacedUrl});
+    }
 
     return next.handle(updReq);
   }
