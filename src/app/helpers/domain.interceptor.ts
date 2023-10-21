@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 import {
   HttpRequest,
   HttpHandler,
@@ -6,15 +6,18 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {DOCUMENT} from "@angular/common";
 
 @Injectable()
 export class DomainInterceptor implements HttpInterceptor {
 
-  constructor() {}
+
+  constructor(@Inject(DOCUMENT) private document: any) {}
 
   intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+    const domain = this.document.location.hostname;
     const ruDomain = 'https://rusprominwest.ru';
-    const rfDomain = 'https://xn--b1aghpgdghbiimc.xn--p1ai';
+    const rfDomain = 'xn--b1aghpgdghbiimc.xn--p1ai';
     const getDomain = function(string: string, subString: string, index: number) {
       return string.split(subString, index).join(subString);
     };
@@ -23,10 +26,11 @@ export class DomainInterceptor implements HttpInterceptor {
     const replacedUrl = req.url.replace(originalDomain, ruDomain);
     let updReq = req;
 
-    if (originalDomain === rfDomain) {
+    if (domain === rfDomain) {
       updReq = req.clone({url: replacedUrl});
     }
 
+    console.log('domain', domain);
     console.log('originalDomain', originalDomain);
     console.log('replacedUrl', replacedUrl);
     console.log('updReq', updReq);
