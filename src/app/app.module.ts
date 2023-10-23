@@ -1,4 +1,4 @@
-import {APP_INITIALIZER, isDevMode, NgModule} from '@angular/core';
+import {APP_INITIALIZER, isDevMode, LOCALE_ID, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -9,7 +9,8 @@ import {ServicesPageComponent} from './services-page/services.component';
 import { FaqPageComponent } from './faq-page/faq-page.component';
 import { ContactsPageComponent } from './contacts-page/contacts-page.component';
 import { AboutUsPageComponent } from './about-us-page/about-us-page.component';
-import {NgOptimizedImage} from "@angular/common";
+import {NgOptimizedImage, registerLocaleData} from "@angular/common";
+import localeRu from '@angular/common/locales/ru';
 import {ImageSliderModule} from "./shared/image-slider/image.slider/image.slider.module";
 import { OrderFormComponent } from './shared/order-form/order-form.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -28,6 +29,8 @@ import {JwtInterceptor} from "./helpers/auth.interceptor";
 import {NgxMaskDirective, provideEnvironmentNgxMask} from "ngx-mask";
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {DomainInterceptor} from "./helpers/domain.interceptor";
+
+registerLocaleData(localeRu, 'ru');
 
 @NgModule({
   declarations: [
@@ -82,7 +85,8 @@ import {DomainInterceptor} from "./helpers/domain.interceptor";
       useClass: DomainInterceptor,
       multi: true
     },
-    provideEnvironmentNgxMask()
+    provideEnvironmentNgxMask(),
+    {provide: LOCALE_ID, useValue: 'ru'}
   ],
   bootstrap: [AppComponent]
 })

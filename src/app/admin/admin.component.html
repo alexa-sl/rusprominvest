@@ -20,7 +20,7 @@
         <tr *ngFor="let order of orders$ | async">
           <td>{{order.clientName}}</td>
           <td class="px-5">{{order.clientPhone}}</td>
-          <td class="px-5">date</td>
+          <td class="px-5">{{order.clientOrderDate | date : 'full'}}</td>
         </tr>
         </tbody>
       </table>

@@ -27,7 +27,8 @@ export class OrderFormComponent implements OnInit {
           Validators.required,
           Validators.maxLength(14)
         ]
-      ]
+      ],
+      clientOrderDate: null
     })
   };
 
@@ -39,6 +40,7 @@ export class OrderFormComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
+    this.form.patchValue({'clientOrderDate': new Date()});
     const data: IOrder = this.form.getRawValue();
 
     this.orderService.putOrder(data).subscribe({
