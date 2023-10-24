@@ -1,29 +1,16 @@
 <div class="services-section">
   <div class="row section">
     <div class="col-8">
-
-      <table *ngIf="(currentUser$ | async) && (orders$ |async) else loggedOut">
-        <thead>
-        <tr>
-          <th>
-            Имя
-          </th>
-          <th class="px-5">
-            Телефон
-          </th>
-          <th>
-            Дата заявки
-          </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let order of orders$ | async">
-          <td>{{order.clientName}}</td>
-          <td class="px-5">{{order.clientPhone}}</td>
-          <td class="px-5">{{order.clientOrderDate | date : 'full'}}</td>
-        </tr>
-        </tbody>
-      </table>
+      <div class="grid_container">
+        <p>Имя</p>
+        <p>Телефон</p>
+        <p>Дата заявки</p>
+        <ng-container *ngFor="let order of orders$ | async">
+          <p>{{order.clientName}}</p>
+          <p>{{order.clientPhone}}</p>
+          <p>{{order.clientOrderDate | date : 'EEEE, dd MMMM YYYY, HH:MM'}}</p>
+        </ng-container>
+      </div>
       <div class="more-button__wrapper text-center">
         <button
           (click)="logout()"
