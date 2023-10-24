@@ -24,9 +24,14 @@
     >
     <div
       class="invalid"
-      *ngIf="(form.touched && form.invalid) || (form.get('clientPhone')?.touched && form.get('clientPhone')?.hasError('required'))"
+      *ngIf="form.touched && form.invalid"
     >
-      Пожалуйста, укажите номер телефона!
+      <p *ngIf="form.get('clientName')?.touched && form.get('clientName')?.hasError('maxlength')">
+        Недопустимая длина имени!
+      </p>
+      <p *ngIf="form.get('clientPhone')?.touched && form.get('clientPhone')?.hasError('required')">
+        Пожалуйста, укажите номер телефона!
+      </p>
     </div>
   </div>
 

@@ -21,7 +21,7 @@ export class OrderFormComponent implements OnInit {
 
   initializeForm() {
     this.form = this.fb.group({
-      clientName: [null],
+      clientName: [null, Validators.maxLength(160)],
       clientPhone: [null,
         [
           Validators.required,
