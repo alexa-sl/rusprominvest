@@ -29,6 +29,7 @@ import {JwtInterceptor} from "./helpers/auth.interceptor";
 import {NgxMaskDirective, provideEnvironmentNgxMask} from "ngx-mask";
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {DomainInterceptor} from "./helpers/domain.interceptor";
+import { PhonePipe } from './shared/pipes/phone.pipe';
 
 registerLocaleData(localeRu, 'ru');
 
@@ -46,7 +47,8 @@ registerLocaleData(localeRu, 'ru');
     LoginComponent,
     RegisterComponent,
     BackendErrorsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PhonePipe
   ],
   imports: [
     BrowserModule,

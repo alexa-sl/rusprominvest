@@ -7,7 +7,7 @@
         <p>Дата заявки</p>
         <ng-container *ngFor="let order of orders$ | async">
           <p>{{order.clientName}}</p>
-          <p>{{order.clientPhone}}</p>
+          <p>{{order.clientPhone | phone}}</p>
           <p>{{order.clientOrderDate | date : 'EEEE, dd MMMM YYYY, HH:MM'}}</p>
         </ng-container>
       </div>
