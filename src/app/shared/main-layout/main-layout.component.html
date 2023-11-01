@@ -1,6 +1,10 @@
 <div class="container-fluid">
   <nav class="navbar fixed-top navbar-expand-md bg-white main-navigation" id="headerNavigation">
-    <div class="container-fluid">
+    <div
+      class="container-fluid"
+      appOutsideClick
+      (outsideClick) = "active = false"
+    >
       <div class="image__wrapper">
         <a routerLink="" class="image__link navbar-brand">
           <img ngSrc="./assets/img/full-logo-grey.svg" alt="РусПромИнвест" id="logo" class="logo"
@@ -15,12 +19,16 @@
               aria-controls="menu"
               aria-expanded="false"
               aria-label="Toggle navigation"
+              (click)="onBurgerClicked()"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="navigation-list-wrapper collapse navbar-collapse" id="menu">
-        <div *ngIf="data$ | async as data" class="">
+      <div
+        class="navigation-list-wrapper collapse navbar-collapse"
+        id="menu" [class.show]="active"
+      >
+        <div *ngIf="data$ | async as data">
           {{data.currentUser?.user?.username}}
         </div>
         <ul class="navbar-nav navigation-list">

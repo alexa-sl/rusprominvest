@@ -30,6 +30,7 @@ import {NgxMaskDirective, provideEnvironmentNgxMask} from "ngx-mask";
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {DomainInterceptor} from "./helpers/domain.interceptor";
 import { PhonePipe } from './shared/pipes/phone.pipe';
+import { OutsideClickDirective } from './shared/directives/outside-click.directive';
 
 registerLocaleData(localeRu, 'ru');
 
@@ -48,7 +49,8 @@ registerLocaleData(localeRu, 'ru');
     RegisterComponent,
     BackendErrorsComponent,
     PageNotFoundComponent,
-    PhonePipe
+    PhonePipe,
+    OutsideClickDirective
   ],
   imports: [
     BrowserModule,
